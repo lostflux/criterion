@@ -11,6 +11,10 @@ import Control.Monad.State (state, evalStateT, get, put)
 import System.IO.Unsafe (unsafePerformIO)
 import Data.IORef (newIORef, IORef, readIORef, modifyIORef)
 
+-- | Using a tail-recursive function.
+--
+-- This is the most efficient solution,
+-- and by large the preferred coding pattern in Haskell.
 solve :: Int -> Int
 solve n = n `solve2` [3, 5]
 
