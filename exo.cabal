@@ -1,0 +1,55 @@
+cabal-version:      2.4
+name:               exo
+version:            0.1.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis:
+
+-- A longer description of the package.
+-- description:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+
+-- The license under which the package is released.
+-- license:
+author:             siavava
+maintainer:         amittaijoel@outlook.com
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files:
+  CHANGELOG.md
+  README.md
+
+executable exo
+  main-is:          Main.hs
+
+  -- Modules included in this executable, other than Main.
+  other-modules:
+    Problems,
+    Problems.Pr1
+
+  -- LANGUAGE extensions used by modules in this package.
+  -- other-extensions:
+  build-depends:    
+      base ^>= 4.18
+    , mtl
+    , ansi-terminal
+
+  hs-source-dirs:   app, src
+  default-language: Haskell2010
+  optimization: 2
+
+library Problems
+    -- Modules included in this library.
+    other-modules:
+      Problems.Pr1
+
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    base ^>= 4.18, mtl
+    hs-source-dirs:   src
+    default-language: Haskell2010
