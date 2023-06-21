@@ -14,5 +14,5 @@ import Problems.Pr1 qualified as Pr1
 problem1 :: Int
 problem1 = Pr1.solve 1000
 
--- >>> Pr1.solve 1000
+-- >>> problem1
 -- 233168
