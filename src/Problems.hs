@@ -1,7 +1,7 @@
 {-# LANGUAGE ImportQualifiedPost #-}
 
 module Problems(
-    problem1
+  problem1
 ) where
 
 import Problems.Pr1 qualified as Pr1

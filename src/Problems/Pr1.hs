@@ -7,9 +7,13 @@ module Problems.Pr1 (
 
 import Data.List (nub)
 import Control.Monad (forM, when)
-import Control.Monad.State (state, evalStateT, get, put) 
 import System.IO.Unsafe (unsafePerformIO)
-import Data.IORef (newIORef, IORef, readIORef, modifyIORef)
+import Data.IORef (
+    newIORef
+  , IORef
+  , readIORef
+  , modifyIORef
+)
 
 -- | Using a tail-recursive function.
 --
@@ -30,7 +34,8 @@ solve n = n `solve2` [3, 5]
 -- If you try the same in @{C, C++, Java, Python, ...}@,
 -- you'll get a stack overflow if the problem is large-enough.
 solve1 :: Int -> [Int] -> Int
-solve1 bound divisors = sum $ nub $ filter (\x -> x `mod` 3 == 0 || x `mod` 5 == 0) [1..bound-1]
+solve1 bound divisors =
+  sum $ nub $ filter (\x -> x `mod` 3 == 0 || x `mod` 5 == 0) [1..bound-1]
 
 -- | Using a tail-recursive function.
 --
