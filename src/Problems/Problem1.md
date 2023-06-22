@@ -66,7 +66,7 @@ solve3 bound divisors = unsafePerformIO $ do
   total <- newIORef 0                     -- initialize sum to 0
 
   forM [1..bound-1] $ \curr -> do         -- iterate upto bound using curr as index
-    when (anyDivisor curr divisors) $ do       -- when curr is a multiple...
+    when (anyDivisor curr divisors) $ do  -- when curr is a multiple...
       modifyIORef total (+ curr)          -- add curr to sum
 
   readIORef total                         -- return final value of sum
