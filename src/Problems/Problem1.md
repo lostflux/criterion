@@ -1,17 +1,15 @@
 # Coding Exposition
 
-## Problems Solved
+## [Problem 1](https://projecteuler.net/problem=1)
 
-### [Problem 1](https://projecteuler.net/problem=1)
-
-#### Problem Statement
+### Problem Statement
 
 If we list all the natural numbers below 10 that are multiples of $3$ or $5$,
 we get $3$, $5$, $6$ and $9$. The sum of these multiples is $23$.
 
 Find the sum of all the multiples of $3$ and $5$ below $1000$.
 
-#### 1. Approach $\#1$
+### Approach 1
 
 Generate a list of all the numbers below $1000$ that are multiples of $3$ or
 $5$, then sum them.
@@ -27,7 +25,7 @@ solve1 bound divisors =
 -- 233168
 ```
 
-#### 2. Approach $\#2$
+### Approach 2
 
 Avoid generating a list and instead use a tail-recursive iteration
 to sum the multiples.
@@ -47,7 +45,7 @@ solve2 bound divisors = iter 0 0 bound
 -- 271066
 ```
 
-#### 3. Approach $\#3$
+#### Approach 3
 
 Instead of a tail recursion (which is unrolled into a loop by [GHC](https://www.haskell.org/ghc/)) anyway,
 use the state monad to maintain the state of the accumulator
