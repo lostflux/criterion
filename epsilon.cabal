@@ -28,8 +28,8 @@ executable epsilon
 
   -- Modules included in this executable, other than Main.
   other-modules:
-    Problems,
-    Problems.Pr1
+      Problems
+    , Problems.Problem1
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
@@ -45,7 +45,7 @@ executable epsilon
 library Problems
     -- Modules included in this library.
     other-modules:
-      Problems.Pr1
+      Problems.Problem1
 
 
     -- LANGUAGE extensions used by modules in this package.

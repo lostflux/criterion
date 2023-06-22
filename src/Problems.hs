@@ -4,7 +4,7 @@ module Problems(
   problem1
 ) where
 
-import Problems.Pr1 qualified as Pr1
+import Problems.Problem1 qualified as P1
 
 -- | Project Euler Problem 1
 -- ---
@@ -12,7 +12,7 @@ import Problems.Pr1 qualified as Pr1
 --
 -- Brute-force approach using tail-recursion.
 problem1 :: Int
-problem1 = Pr1.solve 1000
+problem1 = P1.solve 1000
 
 -- >>> problem1
 -- 233168

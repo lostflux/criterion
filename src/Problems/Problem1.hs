@@ -1,7 +1,7 @@
 -- If we list all the natural numbers below that are multiples of 3 or 5, we get 3, 5, 6 and 9.
 -- The sum of these multiples is 23.
 -- Find the sum of all the multiples of 3 or 5 below 1000.
-module Problems.Pr1 (
+module Problems.Problem1 (
   solve
 ) where
 
@@ -9,11 +9,11 @@ import Data.List (nub)
 import Control.Monad (forM, when)
 import System.IO.Unsafe (unsafePerformIO)
 import Data.IORef (
-    newIORef
-  , IORef
-  , readIORef
-  , modifyIORef
-)
+      newIORef
+    , IORef
+    , readIORef
+    , modifyIORef
+  )
 
 -- | Using a tail-recursive function.
 --
