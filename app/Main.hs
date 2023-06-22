@@ -13,6 +13,8 @@ import System.Console.ANSI(
     , SGR(Reset)
   )
 
+
+
 -- | Print provided number in Green.
 colorize :: Show a => a -> IO ()
 colorize x = do
@@ -20,6 +22,8 @@ colorize x = do
   setSGR [SetColor Background Dull Magenta]
   printf "\n\n#1: %s\n\n" $ show x
   setSGR [Reset]
+
+
 
 main :: IO ()
 main = do

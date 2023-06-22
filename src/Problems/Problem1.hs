@@ -5,6 +5,7 @@ module Problems.Problem1 (
   solve
 ) where
 
+
 import Data.List (nub)
 import Control.Monad (forM, when)
 import System.IO.Unsafe (unsafePerformIO)
@@ -15,12 +16,16 @@ import Data.IORef (
     , modifyIORef
   )
 
+
+
 -- | Using a tail-recursive function.
 --
 -- This is the most efficient solution,
 -- and by large the preferred coding pattern in Haskell.
 solve :: Int -> Int
 solve n = n `solve2` [3, 5]
+
+
 
 -- | Using a **lazy** list comprehension.
 --
@@ -37,6 +42,8 @@ solve1 :: Int -> [Int] -> Int
 solve1 bound divisors =
   sum $ nub $ filter (\x -> x `mod` 3 == 0 || x `mod` 5 == 0) [1..bound-1]
 
+
+
 -- | Using a tail-recursive function.
 --
 -- This is the most efficient solution,
@@ -50,6 +57,8 @@ solve2 bound divisors = iter 0 0 bound
       | any (\x -> curr `mod` x == 0) divisors
         = iter (acc + curr) (curr + 1) end
       | otherwise = iter acc (curr + 1) end
+
+
 
 -- | Solve using the state monad to track the sum.
 -- 
@@ -69,6 +78,8 @@ solve3 bound divisors = unsafePerformIO $ do
 
   -- return sum
   readIORef total
+
+
 
 -- >>> solve3 102 [3,5]
 -- 3415
