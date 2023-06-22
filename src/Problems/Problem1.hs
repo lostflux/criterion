@@ -17,14 +17,12 @@ import Data.IORef (
   )
 
 
-
 -- | Using a tail-recursive function.
 --
 -- This is the most efficient solution,
 -- and by large the preferred coding pattern in Haskell.
 solve :: Int -> Int
 solve n = n `solve2` [3, 5]
-
 
 
 -- | Using a **lazy** list comprehension.
@@ -38,16 +36,25 @@ solve n = n `solve2` [3, 5]
 --
 -- If you try the same in @{C, C++, Java, Python, ...}@,
 -- you'll get a stack overflow if the problem is large-enough.
+--
+-- Examples:
+-- >>> solve1 1000 [3,5]
+-- 233168
 solve1 :: Int -> [Int] -> Int
 solve1 bound divisors =
-  sum $ nub $ filter (\x -> x `mod` 3 == 0 || x `mod` 5 == 0) [1..bound-1]
-
+  sum $ nub $ filter anyDivisor [1..bound-1]
+    where
+      anyDivisor x = any (\i -> x `mod` i == 0) divisors
 
 
 -- | Using a tail-recursive function.
 --
 -- This is the most efficient solution,
 -- and by large the preferred coding pattern in Haskell.
+--
+-- Examples:
+-- >>> solve2 1000 [3,5]
+-- 233168
 solve2 :: Int -> [Int] -> Int
 solve2 bound divisors = iter 0 0 bound
   where
@@ -60,29 +67,30 @@ solve2 bound divisors = iter 0 0 bound
 
 
 
+
 -- | Solve using the state monad to track the sum.
 -- 
 -- This is an anti-pattern,
 -- and should be avoided in favor of pure functions.
+--
+-- NOTE: This is not a **pure** function!
+-- We not only mutate values but also
+-- use @unsafePerformIO@ to get unwrap the internal state
+-- of the @IO@ monad with total disregard to safety.
+--
+-- **To iterate is human, to recurse divine.** ~ L. Peter Deutsch
+--
+-- Examples:
+-- >>> solve3 1000 [3,5]
+-- 233168
 solve3 :: Int -> [Int] -> Int
 solve3 bound divisors = unsafePerformIO $ do
-  total <- newIORef 0
+  
+  total <- newIORef 0                     -- initialize sum to 0
 
-  -- iterate up to bound
-  forM [1..bound-1] $ \curr -> do
+  forM [1..bound-1] $ \curr -> do         -- iterate upto bound using curr as index
     let cmod i = (curr `mod` i) == 0
+    when (any (cmod) divisors) $ do       -- when curr is a multiple...
+      modifyIORef total (+ curr)          -- add curr to sum
 
-    -- check if divisible by any of the divisors
-    when (any (cmod) divisors) $ do
-      modifyIORef total (+ curr)
-
-  -- return sum
-  readIORef total
-
-
-
--- >>> solve3 102 [3,5]
--- 3415
-  
-
-  
+  readIORef total                         -- return final value of sum
