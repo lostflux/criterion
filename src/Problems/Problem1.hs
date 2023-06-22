@@ -49,6 +49,7 @@ anyDivisor n divisors =
 solve1 :: Int -> [Int] -> Int
 solve1 bound divisors =
   sum $ nub $ filter (`anyDivisor` divisors) [1..bound-1]
+  -- ^ sum the list of *unique* elements (nub)
 
 
 -- | Using a tail-recursive function.
