@@ -66,8 +66,6 @@ solve2 bound divisors = iter 0 0 bound
       | otherwise = iter acc (curr + 1) end
 
 
-
-
 -- | Solve using the state monad to track the sum.
 -- 
 -- This is an anti-pattern,
