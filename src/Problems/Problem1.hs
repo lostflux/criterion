@@ -25,6 +25,12 @@ solve :: Int -> Int
 solve n = n `solve2` [3, 5]
 
 
+-- | Check if any of the divisors divide the number n.
+anyDivisor :: (Foldable container, Integral a) => a -> container a -> Bool
+anyDivisor n divisors =
+  foldr (\x acc -> acc || n `mod` x == 0) False divisors
+
+
 -- | Using a **lazy** list comprehension.
 --
 -- This is the most concise &mdash; arguably, simplest &mdash; solution.
@@ -42,9 +48,7 @@ solve n = n `solve2` [3, 5]
 -- 233168
 solve1 :: Int -> [Int] -> Int
 solve1 bound divisors =
-  sum $ nub $ filter anyDivisor [1..bound-1]
-    where
-      anyDivisor x = any (\i -> x `mod` i == 0) divisors
+  sum $ nub $ filter (`anyDivisor` divisors) [1..bound-1]
 
 
 -- | Using a tail-recursive function.
@@ -61,7 +65,7 @@ solve2 bound divisors = iter 0 0 bound
     iter :: Int -> Int -> Int -> Int
     iter acc curr end
       | curr == end = acc
-      | any (\x -> curr `mod` x == 0) divisors
+      | anyDivisor curr divisors
         = iter (acc + curr) (curr + 1) end
       | otherwise = iter acc (curr + 1) end
 
@@ -81,14 +85,14 @@ solve2 bound divisors = iter 0 0 bound
 -- Examples:
 -- >>> solve3 1000 [3,5]
 -- 233168
+
 solve3 :: Int -> [Int] -> Int
 solve3 bound divisors = unsafePerformIO $ do
   
   total <- newIORef 0                     -- initialize sum to 0
 
   forM [1..bound-1] $ \curr -> do         -- iterate upto bound using curr as index
-    let cmod i = (curr `mod` i) == 0
-    when (any (cmod) divisors) $ do       -- when curr is a multiple...
+    when (anyDivisor curr divisors) $ do       -- when curr is a multiple...
       modifyIORef total (+ curr)          -- add curr to sum
 
   readIORef total                         -- return final value of sum
