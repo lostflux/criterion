@@ -86,7 +86,6 @@ solve2 bound divisors = iter 0 0 bound
 -- Examples:
 -- >>> solve3 1000 [3,5]
 -- 233168
-
 solve3 :: Int -> [Int] -> Int
 solve3 bound divisors = unsafePerformIO $ do
   
