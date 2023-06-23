@@ -2,7 +2,8 @@
 -- The sum of these multiples is 23.
 -- Find the sum of all the multiples of 3 or 5 below 1000.
 module Problems.Problem1 (
-  solve
+    solve
+  , solution
 ) where
 
 
@@ -24,11 +25,19 @@ import Data.IORef (
 solve :: Int -> Int
 solve n = n `solve2` [3, 5]
 
+solution :: Integer
+solution = toInteger $ solve 1000
+
+-- >>> solution
+-- 233168
+
 
 -- | Check if any of the divisors divide the number n.
-anyDivisor :: (Foldable container, Integral a) => a -> container a -> Bool
+anyDivisor :: (Foldable c, Integral a) => a -> c a -> Bool
 anyDivisor n divisors =
   foldr (\x acc -> acc || n `mod` x == 0) False divisors
+  -- ^ NOTE: this short-circuits,
+  --   i.e. it stops as soon as it finds a divisor.
 
 
 -- | Using a **lazy** list comprehension.
@@ -48,8 +57,9 @@ anyDivisor n divisors =
 -- 233168
 solve1 :: Int -> [Int] -> Int
 solve1 bound divisors =
-  sum $ nub $ filter (`anyDivisor` divisors) [1..bound-1]
-  -- ^ sum the list of *unique* elements (nub)
+  sum $ filter (`anyDivisor` divisors) [1..bound-1]
+  -- ^ sum the list of elements in the range [1..bound-1]
+  --   that are divisible by any of the divisors
 
 
 -- | Using a tail-recursive function.
@@ -61,14 +71,14 @@ solve1 bound divisors =
 -- >>> solve2 1000 [3,5]
 -- 233168
 solve2 :: Int -> [Int] -> Int
-solve2 bound divisors = iter 0 0 bound
+solve2 bound divisors = iter 0 0
   where
-    iter :: Int -> Int -> Int -> Int
-    iter acc curr end
-      | curr == end = acc
+    iter :: Int -> Int -> Int
+    iter acc curr
+      | curr == bound = acc
       | anyDivisor curr divisors
-        = iter (acc + curr) (curr + 1) end
-      | otherwise = iter acc (curr + 1) end
+        = iter (acc + curr) (curr + 1)
+      | otherwise = iter acc (curr + 1)
 
 
 -- | Solve using the state monad to track the sum.

@@ -1,22 +1,19 @@
 {-# LANGUAGE ImportQualifiedPost #-}
 
 module Problems(
-  problem1
+  solutions
 ) where
 
 import Problems.Problem1 qualified as P1
+import Problems.Problem2 qualified as P2
+import Problems.Problem3 qualified as P3
 
 
-
--- | Project Euler Problem 1
--- ---
--- Find the sum of all the multiples of 3 or 5 below 1000.
---
--- Brute-force approach using tail-recursion.
-problem1 :: Int
-problem1 = P1.solve 1000
-
-
-
--- >>> problem1
--- 233168
+-- | List of solutions to the problems.
+-- solutions :: [Int]
+solutions :: [Integer]
+solutions = [
+      P1.solution
+    , P2.solution
+    , P3.solution
+  ]

@@ -1,5 +1,5 @@
 cabal-version:      2.4
-name:               exo
+name:               epsilon
 version:            0.1.0.0
 
 -- A short (one-line) description of the package.
@@ -30,6 +30,8 @@ executable epsilon
   other-modules:
       Problems
     , Problems.Problem1
+    , Problems.Problem2
+    , Problems.Problem3
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
@@ -45,7 +47,9 @@ executable epsilon
 library Problems
     -- Modules included in this library.
     other-modules:
-      Problems.Problem1
+        Problems.Problem1
+      , Problems.Problem2
+      , Problems.Problem3
 
 
     -- LANGUAGE extensions used by modules in this package.
