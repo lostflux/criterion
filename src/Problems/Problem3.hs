@@ -46,4 +46,4 @@ solution :: Integer
 solution = solve 600851475143
 
 -- >>> solution
--- 6857
+-- 16716787

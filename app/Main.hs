@@ -28,5 +28,8 @@ colorize id solution = do
 
 main :: IO ()
 main = do
-  forM_ (zip [1..] P.solutions) $ \(i, solution) -> do
+  forM_ (enumerate P.solutions) $ \(i, solution) -> do
     colorize i solution
+
+enumerate :: [a] -> [(Int, a)]
+enumerate = zip [1..]
