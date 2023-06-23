@@ -23,7 +23,7 @@ fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
 -- | Sum of even-valued terms in the Fibonacci sequence
 -- whose values do not exceed four million.
 solution :: Integer
-solution = toInteger $ sum $ filter even $ takeWhile (< 4000000) fibs
+solution = toInteger . sum $ filter even $ takeWhile (< 4000000) fibs
 
 -- >>> solution
 -- 4613732

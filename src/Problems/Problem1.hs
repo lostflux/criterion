@@ -26,7 +26,7 @@ solve :: Int -> Int
 solve n = n `solve2` [3, 5]
 
 solution :: Integer
-solution = toInteger $ solve 1000
+solution = (toInteger . solve) 1000
 
 -- >>> solution
 -- 233168
