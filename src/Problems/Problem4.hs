@@ -27,7 +27,7 @@ isPalindrome n = n == reverseNumber n
 -- >>> isPalindrome 9009
 -- True
 
--- >>> isPalindrome 12345
+-- >>> isPalindrome 12321
 -- False
 
 palindromesFromRange :: [Integer] -> [Integer]
@@ -38,8 +38,9 @@ palindromesFromRange range = [x * y | x <- range, y <- range, x <= y, isPalindro
 palindromes :: [Integer]
 palindromes = palindromesFromRange [1..]
 
--- >>> take 10 palindromes
--- [1,2,3,4,5,6,7,8,9,11]
+-- >>> drop 990 $ take 1000 palindromes
+-- [89298,89398,89498,89598,89698,89798,89898,89998,90009,90109]
+
 
 solution :: Integer
 solution = head . sortOn Down $ palindromesFromRange [100..999]
