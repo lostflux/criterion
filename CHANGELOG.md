@@ -1,4 +1,4 @@
-# Revision history for exo
+# Revision history for epsilon
 
 ## 0.1.0.0 -- YYYY-mm-dd
 
