@@ -14,7 +14,7 @@ module Problems.Problem2(
 -- | Stream of Fibonacci numbers,
 --  i.e. infinite list of Fibonacci numbers.
 -- starting with 1, 2, ...
-fibs :: [Int]
+fibs :: [Integer]
 fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
 
 -- >>> take 10 fibs
@@ -23,7 +23,7 @@ fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
 -- | Sum of even-valued terms in the Fibonacci sequence
 -- whose values do not exceed four million.
 solution :: Integer
-solution = toInteger . sum $ filter even $ takeWhile (< 4000000) fibs
+solution = sum $ filter even $ takeWhile (< 4000000) fibs
 
 -- >>> solution
 -- 4613732

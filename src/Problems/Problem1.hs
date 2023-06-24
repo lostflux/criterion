@@ -22,11 +22,11 @@ import Data.IORef (
 --
 -- This is the most efficient solution,
 -- and by large the preferred coding pattern in Haskell.
-solve :: Int -> Int
+solve :: Integer -> Integer
 solve n = n `solve2` [3, 5]
 
 solution :: Integer
-solution = (toInteger . solve) 1000
+solution = solve 1000
 
 -- >>> solution
 -- 233168
@@ -55,7 +55,7 @@ anyDivisor n divisors =
 -- Examples:
 -- >>> solve1 1000 [3,5]
 -- 233168
-solve1 :: Int -> [Int] -> Int
+solve1 :: Integer -> [Integer] -> Integer
 solve1 bound divisors =
   sum $ filter (`anyDivisor` divisors) [1..bound-1]
   -- ^ sum the list of elements in the range [1..bound-1]
@@ -70,10 +70,10 @@ solve1 bound divisors =
 -- Examples:
 -- >>> solve2 1000 [3,5]
 -- 233168
-solve2 :: Int -> [Int] -> Int
+solve2 :: Integer -> [Integer] -> Integer
 solve2 bound divisors = iter 0 0
   where
-    iter :: Int -> Int -> Int
+    iter :: Integer -> Integer -> Integer
     iter acc curr
       | curr == bound = acc
       | anyDivisor curr divisors
@@ -96,7 +96,7 @@ solve2 bound divisors = iter 0 0
 -- Examples:
 -- >>> solve3 1000 [3,5]
 -- 233168
-solve3 :: Int -> [Int] -> Int
+solve3 :: Integer -> [Integer] -> Integer
 solve3 bound divisors = unsafePerformIO $ do
   
   total <- newIORef 0                     -- initialize sum to 0
