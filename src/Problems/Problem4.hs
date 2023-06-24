@@ -31,15 +31,15 @@ isPalindrome n = n == reverseNumber n
 -- False
 
 palindromesFromRange :: [Integer] -> [Integer]
-palindromesFromRange range = nub [x * y | x <- range, y <- range, x <= y, isPalindrome (x * y)]
+palindromesFromRange range = [x * y | x <- range, y <- range, x <= y, isPalindrome (x * y)]
 
 
 -- | Infinite stream of (loosely ordered) palindromes.
 palindromes :: [Integer]
 palindromes = palindromesFromRange [1..]
 
--- >>> drop 990 $ take 1000 palindromes
--- [89298,89398,89498,89598,89698,89798,89898,89998,90009,90109]
+-- >>> take 10 palindromes
+-- [1,2,3,4,5,6,7,8,9,11]
 
 solution :: Integer
 solution = head . sortOn Down $ palindromesFromRange [100..999]
