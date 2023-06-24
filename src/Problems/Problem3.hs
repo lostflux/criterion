@@ -36,8 +36,8 @@ primeFactors n = nub $ factor n primes
         (dividend, remainder) = n `divMod` p
 
 
--- >>> primeFactors 44572934875
--- [2,3,5]
+-- >>> primeFactors $ 2 * 2 * 2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23 * 29 * 31
+-- [2,3,5,7,11,13,17,19,23,29,31]
 
 solve :: Integer -> Integer
 solve = last . primeFactors
