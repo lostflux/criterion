@@ -35,7 +35,7 @@ solution = solve 1000
 -- | Check if any of the divisors divide the number n.
 anyDivisor :: (Foldable c, Integral a) => a -> c a -> Bool
 anyDivisor n divisors =
-  foldr (\x acc -> acc || n `mod` x == 0) False divisors
+  any (\x -> n `mod` x == 0) divisors
   -- ^ NOTE: this short-circuits,
   --   i.e. it stops as soon as it finds a divisor.
 
@@ -55,7 +55,9 @@ anyDivisor n divisors =
 -- Examples:
 -- >>> solve1 1000 [3,5]
 -- 233168
-solve1 :: Integer -> [Integer] -> Integer
+
+
+solve1 :: (Foldable c, Integral a) => a -> c a -> a
 solve1 bound divisors =
   sum $ filter (`anyDivisor` divisors) [1..bound-1]
   -- ^ sum the list of elements in the range [1..bound-1]
@@ -70,10 +72,10 @@ solve1 bound divisors =
 -- Examples:
 -- >>> solve2 1000 [3,5]
 -- 233168
-solve2 :: Integer -> [Integer] -> Integer
+-- solve2 :: Integer -> [Integer] -> Integer
+solve2 :: (Foldable c, Integral a) => a -> c a -> a
 solve2 bound divisors = iter 0 0
   where
-    iter :: Integer -> Integer -> Integer
     iter acc curr
       | curr == bound = acc
       | anyDivisor curr divisors
@@ -96,7 +98,8 @@ solve2 bound divisors = iter 0 0
 -- Examples:
 -- >>> solve3 1000 [3,5]
 -- 233168
-solve3 :: Integer -> [Integer] -> Integer
+-- solve3 :: Integer -> [Integer] -> Integer
+solve3 :: (Foldable c, Integral a) => a -> c a -> a
 solve3 bound divisors = unsafePerformIO $ do
   
   total <- newIORef 0                     -- initialize sum to 0

@@ -2,7 +2,7 @@
 --
 -- What is the largest prime factor of the number $600851475143$?
 
-module Problems.Problem3(
+module Problems.Problem3 (
     solution
   , primes
   , primeFactors
