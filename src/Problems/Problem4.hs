@@ -6,7 +6,10 @@
 --  Find the largest palindrome made from the product of two 3-digit numbers.
 
 module Problems.Problem4 (
-  solution
+    solution
+  , reverseNumber
+  , isPalindrome
+  , palindromes
 ) where
 
 import Data.List (sortOn, sort, nub)

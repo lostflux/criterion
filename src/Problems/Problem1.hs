@@ -4,6 +4,12 @@
 module Problems.Problem1 (
     solve
   , solution
+
+  -- Others
+  , anyDivisor
+  , solve1
+  , solve2
+  , solve3
 ) where
 
 
@@ -23,7 +29,7 @@ import Data.IORef (
 -- This is the most efficient solution,
 -- and by large the preferred coding pattern in Haskell.
 solve :: Integer -> Integer
-solve n = n `solve2` [3, 5]
+solve n = n `solve2` [3,5]
 
 solution :: Integer
 solution = solve 1000
