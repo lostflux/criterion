@@ -55,8 +55,6 @@ anyDivisor n divisors =
 -- Examples:
 -- >>> solve1 1000 [3,5]
 -- 233168
-
-
 solve1 :: (Foldable c, Integral a) => a -> c a -> a
 solve1 bound divisors =
   sum $ filter (`anyDivisor` divisors) [1..bound-1]
