@@ -4,14 +4,9 @@ module Tests.Test3 (
 ) where
 
 import Test.HUnit ( (~:), (~?=), runTestTT, Counts, Test(TestList) )
-
-import Problems.Problem1 qualified as P1
-import Problems.Problem2 qualified as P2
 import Problems.Problem3 qualified as P3
-import Problems.Problem4 qualified as P4
 
-
--- #3
+-- | Test Suite  #3
 defaultTests :: IO Counts
 defaultTests = runTestTT $ TestList [
       "Problem 3" ~: P3.solution ~?= 6857
