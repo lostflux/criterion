@@ -33,6 +33,7 @@ executable epsilon
     , Problems.Problem2
     , Problems.Problem3
     , Problems.Problem4
+    , Problems.Problem5
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
@@ -52,6 +53,7 @@ library Problems
       , Problems.Problem2
       , Problems.Problem3
       , Problems.Problem4
+      , Problems.Problem5
 
 
     -- LANGUAGE extensions used by modules in this package.
@@ -70,6 +72,7 @@ test-suite tests
     , Problems.Problem2, Tests.Test2
     , Problems.Problem3, Tests.Test3
     , Problems.Problem4, Tests.Test4
+    , Problems.Problem5, Tests.Test5
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
