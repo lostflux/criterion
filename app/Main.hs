@@ -15,6 +15,9 @@ import System.Console.ANSI(
 import Data.Traversable (forM)
 import Control.Monad (forM_)
 
+import Criterion (bench, whnf, nf, bgroup)
+import Criterion.Main (defaultMain)
+
 -- | given a number, split it into 50 digits per line.
 prettyFormat :: Integer -> String
 prettyFormat n = iter (show n) ""
@@ -30,7 +33,7 @@ colorize :: (PrintfArg a) => Int -> a -> IO ()
 colorize id solution = do
   setSGR [SetColor Foreground Vivid Blue]
   printf "\n\n--------------------------------------------------\n"
-  printf "#Problem %d\n" id
+  printf "Problem/#%d\n" id
   printf "--------------------------------------------------\n"
   printf "%s" solution
   printf "--------------------------------------------------\n"
@@ -40,8 +43,15 @@ colorize id solution = do
 
 main :: IO ()
 main = do
+
   forM_ (enumerate P.solutions) $ \(i, solution) -> do
     colorize i $ prettyFormat solution
+
+    -- let benchmarks = 
+      
+    defaultMain [
+        bgroup "Problem" [bench (printf "#%d" i)  (nf (\_ -> solution) 0)]
+      ]
 
 enumerate :: [a] -> [(Int, a)]
 enumerate = zip [1..]
