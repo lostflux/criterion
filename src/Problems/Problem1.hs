@@ -106,13 +106,13 @@ solve2 bound divisors = iter 0 0
 solve3 :: (Foldable c, Integral a) => a -> c a -> a
 solve3 bound divisors = unsafePerformIO $ do
   
-  total <- newIORef 0                     -- initialize sum to 0
+  total <- newIORef 0                       -- initialize sum to 0
 
-  for [1..bound-1] $ \curr -> do         -- iterate upto bound using curr as index
+  for [1..bound-1] $ \curr -> do            -- iterate upto bound using curr as index
     when (curr `anyDivisor` divisors) $ do  -- when curr is a multiple...
-      modifyIORef total (+ curr)          -- add curr to sum
+      modifyIORef total (+ curr)            -- add curr to sum
 
-  readIORef total                         -- return final value of sum
+  readIORef total                           -- return final value of sum
 
 -- >>> solve3 1000 $ take 10 [3,5]
 -- 233168
