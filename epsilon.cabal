@@ -34,6 +34,7 @@ executable epsilon
     , Problems.Problem3
     , Problems.Problem4
     , Problems.Problem5
+    , Problems.Problem6
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
@@ -56,11 +57,15 @@ library Problems
       , Problems.Problem3
       , Problems.Problem4
       , Problems.Problem5
-
+      , Problems.Problem6
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:    base >= 4.14, mtl
+    build-depends:
+        base >= 4.14
+      , mtl
+      , ansi-terminal
+      , criterion
     hs-source-dirs:   src
     default-language: Haskell2010
 

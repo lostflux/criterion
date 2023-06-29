@@ -7,7 +7,8 @@
 -- find the sum of the even-valued terms.
 
 module Problems.Problem2 (
-    solution
+    solve
+  , solution
   , fibs
 ) where
 
@@ -21,9 +22,12 @@ fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
 -- [1,2,3,5,8,13,21,34,55,89]
 
 -- | Sum of even-valued terms in the Fibonacci sequence
--- whose values do not exceed four million.
+-- whose values do not exceed given limit.
+solve :: Integer -> Integer
+solve n = sum $ filter even $ takeWhile (< n) fibs
+
 solution :: Integer
-solution = sum $ filter even $ takeWhile (< 4000000) fibs
+solution = solve 4000000
 
 -- >>> solution
 -- 4613732

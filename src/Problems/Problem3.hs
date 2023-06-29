@@ -4,6 +4,7 @@
 
 module Problems.Problem3 (
     solution
+  , solve
   , primes
   , primeFactors
 ) where

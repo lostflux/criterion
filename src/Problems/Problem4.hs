@@ -7,6 +7,7 @@
 
 module Problems.Problem4 (
     solution
+  , solve
   , reverseNumber
   , isPalindrome
   , palindromes
@@ -44,9 +45,12 @@ palindromes = palindromesFromRange [1..]
 -- >>> drop 990 $ take 1000 palindromes
 -- [89298,89398,89498,89598,89698,89798,89898,89998,90009,90109]
 
+solve :: [Integer] -> Integer
+solve range = head . sortOn Down $ palindromesFromRange range
+
 
 solution :: Integer
-solution = head . sortOn Down $ palindromesFromRange [100..999]
+solution = solve [100..999]
 
 -- >>> solution
 -- 906609

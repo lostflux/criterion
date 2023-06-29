@@ -9,7 +9,8 @@
 -- What is the smallest positive number that is evenly divisible by all of the
 -- numbers from 1 to 20?
 
-module Problems.Problem5(
+module Problems.Problem5 (
+  solve,
   solution,
   euclid,
   gcd,
@@ -21,12 +22,15 @@ import Prelude hiding ( lcm, gcd )
 import Data.Foldable (foldl')
 import Text.Printf (printf)
 
+solve :: [Integer] -> Integer
+solve = smallestMultiple
+
 -- | Solution to Problem 5
 --
 -- >>> solution
 -- 232792560
 solution :: Integer
-solution = smallestMultiple [1..20]
+solution = solve [1..20]
 
 -- | Euclidean ALgorithm
 --
