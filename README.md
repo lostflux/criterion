@@ -21,8 +21,9 @@ All solutions are written in Haskell.
 | Problem | Date | Description | Performance | Discussion |
 | :--- |:--- | ---:| ---: | ---: |
 | N/A | 21/06/2023 | Created repository | N/A | N/A |
-| #1 | 21/06/2023 | [Sum of all the multiples of 3 or 5 below 1000](./src/Problems/Problem1.hs) | $46.64 \mu s$ | [link](https://amitt.ai/blog/posts/computing/exposition/001-multiples-sum/) |
-| #2 | 22/06/2023 | [Sum of even terms of fibonacci sequence below 4,000,000](./src/Problems/Problem2.hs) | $563.0 ns$ | [link](https://amitt.ai/blog/posts/computing/exposition/002-fibonacci-sum/) |
-| #3 | 23/06/2023 | [Largest prime factor of 600851475143](./src/Problems/Problem3.hs) | $26.68 \mu s$ | [link](https://amitt.ai/blog/posts/computing/exposition/003-largest-prime-factor/) |
-| #4 | 24/06/2023 | [Largest palindrome made from the product of two 3-digit numbers](./src/Problems/Problem4.hs) | $323.8 ms$ | [link](https://amitt.ai/blog/posts/computing/exposition/004-largest-palindrome/) |
-| #5 | 25/06/2023 | [Smallest number evenly divisible by all numbers from 1 to 20](./src/Problems/Problem5.hs) | $1.315 \mu s$ | [link](https://amitt.ai/blog/posts/computing/exposition/005-least-common-multiple/) |
+| #1 | 21/06/2023 | [Sum of all the multiples of 3 or 5 below 1000](./src/Problems/Problem1.hs) | $46.64 \mu s$ | [link](https://amitt.ai/writing/computing/exposition/001-multiples-sum/) |
+| #2 | 22/06/2023 | [Sum of even terms of fibonacci sequence below 4,000,000](./src/Problems/Problem2.hs) | $563.0 ns$ | N/A |
+| #3 | 23/06/2023 | [Largest prime factor of 600851475143](./src/Problems/Problem3.hs) | $26.68 \mu s$ | N/A |
+| #4 | 24/06/2023 | [Largest palindrome made from the product of two 3-digit numbers](./src/Problems/Problem4.hs) | $323.8 ms$ | N/A |
+| #5 | 25/06/2023 | [Smallest number evenly divisible by all numbers from 1 to 20](./src/Problems/Problem5.hs) | $1.315 \mu s$ | N/A |
+| #6 | 26/06/2023 | [Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum](./src/Problems/Problem6.hs) | $3.881 \mu s$ | N/A |
