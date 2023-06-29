@@ -106,5 +106,5 @@ solve3 bound divisors = unsafePerformIO $ do
 
   readIORef total                           -- return final value of sum
 
--- >>> solve3 1000 $ take 10 [3,5]
+-- >>> solve3 1000 [3,5]
 -- 233168
