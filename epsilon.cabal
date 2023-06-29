@@ -35,6 +35,7 @@ executable epsilon
     , Problems.Problem4
     , Problems.Problem5
     , Problems.Problem6
+    , Problems.Problem7
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
@@ -58,6 +59,7 @@ library Problems
       , Problems.Problem4
       , Problems.Problem5
       , Problems.Problem6
+      , Problems.Problem7
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
