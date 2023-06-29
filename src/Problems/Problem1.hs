@@ -30,14 +30,13 @@ import Data.Traversable (for)
 -- This is the most efficient solution,
 -- and by large the preferred coding pattern in Haskell.
 solve :: Integer -> Integer
-solve n = n `solve2` [3,5]
+solve n = n `solve1` [3,5]
 
 solution :: Integer
 solution = solve 1000
 
 -- >>> solution
 -- 233168
-
 
 -- | Check if any of the divisors divide the number n.
 anyDivisor :: (Foldable c, Integral a) => a -> c a -> Bool
