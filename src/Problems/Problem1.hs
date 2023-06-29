@@ -102,7 +102,6 @@ solve2 bound divisors = iter 0 0
 -- Examples:
 -- >>> solve3 1000 [3,5]
 -- 233168
-
 solve3 :: (Foldable c, Integral a) => a -> c a -> a
 solve3 bound divisors = unsafePerformIO $ do
   
