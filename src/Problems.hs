@@ -26,6 +26,7 @@ import Problems.Problem4 qualified as P4
 import Problems.Problem5 qualified as P5
 import Problems.Problem6 qualified as P6
 import Problems.Problem7 qualified as P7
+import Problems.Problem8 qualified as P8
 
 
 -------------------------------------------------
@@ -90,3 +91,7 @@ benchmarks = do
   -- Problem 7
   colorize 7 $ P7.solve 10001
   defaultMain [ bgroup "Problem" [bench "7"  $ nf P7.solve 10001]]
+
+  -- Problem 8
+  colorize 8 $ P8.solve 13
+  defaultMain [ bgroup "Problem" [bench "8"  $ nf P8.solve 13]]

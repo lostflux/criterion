@@ -28,3 +28,4 @@ All solutions are written in Haskell.
 | #5 | 25/06/2023 | [Smallest number evenly divisible by all numbers from 1 to 20](./src/Problems/Problem5.hs) | $1.315 \mu s$ | N/A |
 | #6 | 28/06/2023 | [Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum](./src/Problems/Problem6.hs) | $3.881 \mu s$ | N/A |
 | #7 | 29/06/2023 | [10001st prime](./src/Problems/Problem7.hs) | $19.63 \mu s$ | N/A |
+| #8 | 29/06/2023 | [Largest product in a series](./src/Problems/Problem8.hs) | $1.905 ms$ | N/A |

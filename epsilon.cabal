@@ -36,6 +36,7 @@ executable epsilon
     , Problems.Problem5
     , Problems.Problem6
     , Problems.Problem7
+    , Problems.Problem8
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
@@ -60,6 +61,7 @@ library Problems
       , Problems.Problem5
       , Problems.Problem6
       , Problems.Problem7
+      , Problems.Problem8
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -90,6 +92,7 @@ test-suite tests
     , mtl
     , ansi-terminal
     , HUnit
+    , criterion
 
   hs-source-dirs:   test, src
   default-language: Haskell2010
