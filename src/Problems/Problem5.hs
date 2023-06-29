@@ -10,12 +10,12 @@
 -- numbers from 1 to 20?
 
 module Problems.Problem5 (
-  solve,
-  solution,
-  euclid,
-  gcd,
-  lcm,
-  smallestMultiple
+    solve
+  , solution
+  , euclid
+  , gcd
+  , lcm
+  , smallestMultiple
 ) where
 
 import Prelude hiding ( lcm, gcd )
