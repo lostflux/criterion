@@ -39,6 +39,7 @@ executable epsilon
   -- other-extensions:
   build-depends:    
       base >= 4.14
+    , containers
     , mtl
     , ansi-terminal
     , criterion

@@ -14,7 +14,7 @@ module Problems.Problem1 (
 
 
 import Data.List (nub)
-import Control.Monad (forM, when)
+import Control.Monad (when)
 import System.IO.Unsafe (unsafePerformIO)
 import Data.IORef (
       newIORef
@@ -22,6 +22,7 @@ import Data.IORef (
     , readIORef
     , modifyIORef
   )
+import Data.Traversable (for)
 
 
 -- | Using a tail-recursive function.
@@ -76,15 +77,14 @@ solve1 bound divisors =
 -- Examples:
 -- >>> solve2 1000 [3,5]
 -- 233168
--- solve2 :: Integer -> [Integer] -> Integer
+-- WAS solve2 :: Integer -> [Integer] -> Integer
 solve2 :: (Foldable c, Integral a) => a -> c a -> a
 solve2 bound divisors = iter 0 0
   where
     iter acc curr
-      | curr == bound = acc
-      | anyDivisor curr divisors
-        = iter (acc + curr) (curr + 1)
-      | otherwise = iter acc (curr + 1)
+      | curr == bound             = acc
+      | anyDivisor curr divisors  = iter (acc + curr) (curr + 1)
+      | otherwise                 = iter acc (curr + 1)
 
 
 -- | Solve using the state monad to track the sum.
@@ -102,14 +102,17 @@ solve2 bound divisors = iter 0 0
 -- Examples:
 -- >>> solve3 1000 [3,5]
 -- 233168
--- solve3 :: Integer -> [Integer] -> Integer
+
 solve3 :: (Foldable c, Integral a) => a -> c a -> a
 solve3 bound divisors = unsafePerformIO $ do
   
   total <- newIORef 0                     -- initialize sum to 0
 
-  forM [1..bound-1] $ \curr -> do         -- iterate upto bound using curr as index
-    when (anyDivisor curr divisors) $ do  -- when curr is a multiple...
+  for [1..bound-1] $ \curr -> do         -- iterate upto bound using curr as index
+    when (curr `anyDivisor` divisors) $ do  -- when curr is a multiple...
       modifyIORef total (+ curr)          -- add curr to sum
 
   readIORef total                         -- return final value of sum
+
+-- >>> solve3 1000 $ take 10 [3,5]
+-- 233168
