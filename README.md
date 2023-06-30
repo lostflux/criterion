@@ -26,7 +26,7 @@ All solutions are written in Haskell.
 | #3 | 23/06/2023 | [Largest prime factor of 600851475143](./src/Problems/Problem3.hs) | $26.68 \mu s$ | N/A |
 | #4 | 24/06/2023 | [Largest palindrome made from the product of two 3-digit numbers](./src/Problems/Problem4.hs) | $323.8 ms$ | N/A |
 | #5 | 25/06/2023 | [Smallest number evenly divisible by all numbers from 1 to 20](./src/Problems/Problem5.hs) | $1.315 \mu s$ | N/A |
-| #6 | 28/06/2023 | [Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum](./src/Problems/Problem6.hs) | $3.881 \mu s$ | N/A |
-| #7 | 29/06/2023 | [10001st prime](./src/Problems/Problem7.hs) | $19.63 \mu s$ | N/A |
-| #8 | 29/06/2023 | [Largest product in a series](./src/Problems/Problem8.hs) | $1.905 ms$ | N/A |
+| #6 | 26/06/2023 | [Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum](./src/Problems/Problem6.hs) | $3.881 \mu s$ | N/A |
+| #7 | 27/06/2023 | [10001st prime](./src/Problems/Problem7.hs) | $19.63 \mu s$ | N/A |
+| #8 | 28/06/2023 | [Largest product in a series](./src/Problems/Problem8.hs) | $1.905 ms$ | N/A |
 | #9 | 29/06/2023 | [Special Pythagorean triplet that sums up to 1000](./src/Problems/Problem9.hs) | $3.314 ms$ | N/A |
