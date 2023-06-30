@@ -29,3 +29,4 @@ All solutions are written in Haskell.
 | #6 | 28/06/2023 | [Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum](./src/Problems/Problem6.hs) | $3.881 \mu s$ | N/A |
 | #7 | 29/06/2023 | [10001st prime](./src/Problems/Problem7.hs) | $19.63 \mu s$ | N/A |
 | #8 | 29/06/2023 | [Largest product in a series](./src/Problems/Problem8.hs) | $1.905 ms$ | N/A |
+| #9 | 29/06/2023 | [Special Pythagorean triplet that sums up to $1000$](./src/Problems/Problem9.hs) | $3.143 \mu s$ | N/A |
