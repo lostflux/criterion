@@ -23,6 +23,8 @@ import Data.IORef (
     , modifyIORef
   )
 import Data.Traversable (for)
+import Data.STRef.Strict (readSTRef, modifySTRef, newSTRef)
+import Control.Monad.ST.Strict (runST)
 
 
 -- | Using a tail-recursive function.
@@ -30,7 +32,7 @@ import Data.Traversable (for)
 -- This is the most efficient solution,
 -- and by large the preferred coding pattern in Haskell.
 solve :: Integer -> Integer
-solve n = n `solve1` [3,5]
+solve n = n `solve3` [3,5]
 
 solution :: Integer
 solution = solve 1000
@@ -92,18 +94,20 @@ solve2 bound divisors = iter 0 0
 -- and should be avoided in favor of pure functions.
 --
 -- Examples:
--- >>> solve3 1000 [3,5]
+-- >>> :{ 
+-- solve3 1000 [3,5]
+-- :}
 -- 233168
 solve3 :: (Foldable c, Integral a) => a -> c a -> a
-solve3 bound divisors = unsafePerformIO $ do
+solve3 bound divisors =
+  runST $ newSTRef 0 >>= compute
+  where
+    compute total = do
+      for [1..bound-1] $ \curr -> do
+        when (curr `anyDivisor` divisors) $ do
+          modifySTRef total (+ curr)
+      readSTRef total
   
-  total <- newIORef 0                       -- initialize sum to 0
-
-  for [1..bound-1] $ \curr -> do            -- iterate upto bound using curr as index
-    when (curr `anyDivisor` divisors) $ do  -- when curr is a multiple...
-      modifyIORef total (+ curr)            -- add curr to sum
-
-  readIORef total                           -- return final value of sum
 
 -- >>> solve3 1000 [3,5]
 -- 233168
