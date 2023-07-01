@@ -16,6 +16,8 @@ To _build and run_, use `cabal run`.
 
 All solutions are written in Haskell.
 
+---
+
 ## CHANGELOG
 
 | Problem | Date | Description | Performance | Discussion |
@@ -30,3 +32,6 @@ All solutions are written in Haskell.
 | #7 | 27/06/2023 | [10001st prime](./src/Problems/Problem7.hs) | $19.63\ \mu\mathbf{s}$ | N/A |
 | #8 | 28/06/2023 | [Largest product in a series](./src/Problems/Problem8.hs) | $1.905\ m\mathbf{s}$ | N/A |
 | #9 | 29/06/2023 | [Special Pythagorean triplet that sums up to 1000](./src/Problems/Problem9.hs) | $3.314\ m\mathbf{s}$ | N/A |
+| #10 | 30/06/2023 | [Sum of all primes below two million](./src/Problems/Problem10.hs) | $1.550\ m\mathbf{s}$ | N/A |
+
+---
