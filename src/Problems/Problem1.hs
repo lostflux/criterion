@@ -15,13 +15,6 @@ module Problems.Problem1 (
 
 import Data.List (nub)
 import Control.Monad (when)
-import System.IO.Unsafe (unsafePerformIO)
-import Data.IORef (
-      newIORef
-    , IORef
-    , readIORef
-    , modifyIORef
-  )
 import Data.Traversable (for)
 import Data.STRef.Strict (readSTRef, modifySTRef, newSTRef)
 import Control.Monad.ST.Strict (runST)
