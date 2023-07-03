@@ -7,6 +7,8 @@
 //! find their sum.
 //! 
 
+use num::traits::PrimInt;
+
 /// Project Euler - Problem 2:
 /// Find the sum of all even Fibonacci numbers below a given limit.
 /// 
@@ -18,15 +20,15 @@
 /// assert_eq!(solve(100), 44);
 /// assert_eq!(solve(4000000), 4613732);
 /// ```
-pub fn solve(limit: i32) -> i32 {
+pub fn solve<T: PrimInt>(limit: T) -> T {
 
-  let mut sum = 0;
-  let mut curr = 1;
-  let mut next = 2;
+  let mut sum = T::zero();
+  let mut curr = T::one();
+  let mut next = T::one() + T::one();
 
   while curr < limit {
-    if curr % 2 == 0 {
-      sum += curr;
+    if curr % (T::one() + T::one()) == T::zero() {
+      sum = sum + curr;
     }
     let temp = curr;
     curr = next;

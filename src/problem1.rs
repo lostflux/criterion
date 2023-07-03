@@ -5,6 +5,8 @@
 //! 
 //! Find the sum of all multiples of 3 or 5 below 1000.
 
+use num::{traits::PrimInt};
+use std::ops::Range;
 
 ///
 /// Project Euler - Problem 1:
@@ -15,23 +17,21 @@
 /// use num::BigInt;
 /// use problems::problem1::solve;
 /// 
-/// assert_eq!(solve(vec![3,5], 10), BigInt::from(23));
-/// assert_eq!(solve(vec![3,5], 1000), BigInt::from(233168));
+/// assert_eq!(solve(vec![3,5], 10), 23);
+/// assert_eq!(solve(vec![3,5], 1000), 233168);
 /// ```
-pub fn solve(divisors: Vec<i32>, limit: i32) -> i32 {
+pub fn solve<T: PrimInt>(divisors: Vec<T>, limit: T) -> T where Range<T>: Iterator<Item = T> {
+  let mut sum = T::zero();
 
-  // largest bigint possible
-  let mut sum = 0;
-
-  for i in 1..limit {
+  for i in T::one()..limit {
     for divisor in &divisors {
-      if i % divisor == 0 {
-        sum += i;
+      if i % *divisor == T::zero() {
+        sum = sum + i;
         break;
       }
     }
   }
-  sum
+  return sum;
 }
 
 #[cfg(test)]
