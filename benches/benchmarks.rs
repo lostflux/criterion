@@ -19,13 +19,14 @@ fn benchmark2(c: &mut Criterion) {
   c.bench_function(
     "Problem 2", 
     |b| b.iter(
-      || problem1::solve(
-        black_box(vec![3,5]),
-        black_box(1000000)
+      || problem2::solve(
+        black_box(4000000)
       )
     )
   );
 }
+
+
 
 criterion_group!(benches,
   benchmark1,

@@ -20,11 +20,11 @@ All solutions are written in Haskell.
 
 ## CHANGELOG
 
-| Problem | Date | Description | Performance | Discussion |
-| :--- |:--- | ---:| ---: | ---: |
-| N/A | 21/06/2023 | Created repository | N/A | N/A |
-| #1 | 21/06/2023 | [Sum of all the multiples of 3 or 5 below 1000](./src/Problems/Problem1.hs) | $46.64\  \mu\mathbf{s}$ | [link](https://amitt.ai/writing/computing/exposition/001-multiples-sum/) |
-| #2 | 22/06/2023 | [Sum of even terms of fibonacci sequence below 4,000,000](./src/Problems/Problem2.hs) | $563.0\ n\mathbf{s}$ | N/A |
+| Problem | Date | Description | Rust | Haskell | Discussion |
+| :--- |:--- | ---:| ---: | ---: | ---: |
+| N/A | 21/06/2023 | Created repository | N/A | N/A | N/A |
+| #1 | 21/06/2023 | Sum of all the multiples of 3 or 5 below 1000 | [$3.7078\ \mu\mathbf{s}$](./src/problem1.rs) | [$46.64\  \mu\mathbf{s}$](./src/Problems/Problem1.hs) | [link](https://amitt.ai/writing/computing/exposition/001-multiples-sum/) |
+| #2 | 22/06/2023 | [Sum of even terms of fibonacci sequence below 4,000,000](./src/Problems/Problem2.hs) | [$20.683\ n\mathbf{s}$](./src/problem1.rs)| [$563.0\ n\mathbf{s}$](./src/Problems/Problem2.hs) | N/A |
 | #3 | 23/06/2023 | [Largest prime factor of 600851475143](./src/Problems/Problem3.hs) | $26.68\ \mu\mathbf{s}$ | N/A |
 | #4 | 24/06/2023 | [Largest palindrome made from the product of two 3-digit numbers](./src/Problems/Problem4.hs) | $323.8\ m\mathbf{s}$ | N/A |
 | #5 | 25/06/2023 | [Smallest number evenly divisible by all numbers from 1 to 20](./src/Problems/Problem5.hs) | $1.315\ \mu\mathbf{s}$ | N/A |

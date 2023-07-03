@@ -1,5 +1,10 @@
+//! Problem 1: Multiples of 3 and 
+//! 
+//! If we list all the natural numbers below 10 that are multiples of 3 or 5,
+//! we get 3, 5, 6 and 9. The sum of these multiples is 23.
+//! 
+//! Find the sum of all multiples of 3 or 5 below 1000.
 
-use num::bigint::BigInt;
 
 ///
 /// Project Euler - Problem 1:
@@ -13,10 +18,10 @@ use num::bigint::BigInt;
 /// assert_eq!(solve(vec![3,5], 10), BigInt::from(23));
 /// assert_eq!(solve(vec![3,5], 1000), BigInt::from(233168));
 /// ```
-pub fn solve(divisors: Vec<i32>, limit: i32) -> BigInt {
+pub fn solve(divisors: Vec<i32>, limit: i32) -> i32 {
 
   // largest bigint possible
-  let mut sum: BigInt = BigInt::from(0);
+  let mut sum = 0;
 
   for i in 1..limit {
     for divisor in &divisors {
@@ -35,8 +40,8 @@ mod tests {
 
   #[test]
   fn test_solve() {
-    assert_eq!(solve(vec![3,5], 10), BigInt::from(23));
-    assert_eq!(solve(vec![3,5], 1000), BigInt::from(233168));
+    assert_eq!(solve(vec![3,5], 10), 23);
+    assert_eq!(solve(vec![3,5], 1000), 233168);
   }
 }
 
