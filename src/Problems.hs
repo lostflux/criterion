@@ -54,7 +54,7 @@ colorize :: (PrintfArg a, Show a) => Int -> a -> IO ()
 colorize id solution = do
   setSGR [SetColor Foreground Vivid Blue]
   printf "\n--------------------------------------------------------------------------------\n"
-  printf "Problem/#%d\n" id
+  printf "Problem/#%d (haskell)\n" id
   printf "--------------------------------------------------------------------------------\n"
   printf "%s" $ prettyFormat solution
   printf "--------------------------------------------------------------------------------\n\n"
