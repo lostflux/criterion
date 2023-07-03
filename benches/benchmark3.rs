@@ -6,7 +6,7 @@ use ::problems::*;
 /// 
 pub fn run(c: &mut Criterion) {
   c.bench_function(
-    "Problem", 
+    "Problem #3", 
     |b| b.iter(
       || problem3::solve(
         black_box(600851475143 as i64)

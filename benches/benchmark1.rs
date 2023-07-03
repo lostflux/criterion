@@ -4,7 +4,7 @@ use ::problems::*;
 
 pub fn run(c: &mut Criterion) {
   c.bench_function(
-    "Problem", 
+    "Problem #1", 
     |b| b.iter(
       || problem1::solve(
         black_box(vec![3,5]),

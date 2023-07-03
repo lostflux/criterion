@@ -6,7 +6,7 @@
 //! What is the smallest positive number that is evenly divisible by all of the
 //! numbers from 1 to 20?
 
-use std::{collections::BTreeSet as Set, ops::Range, cmp::{min, max}};
+use std::{ops::Range, cmp::{min, max}};
 
 use num::traits::PrimInt;
 
@@ -18,15 +18,14 @@ use num::traits::PrimInt;
 /// use problems::problem5::solve;
 /// use std::collections::BTreeSet;
 /// 
-/// assert_eq!(solve(BTreeSet::<i32>::from([]).into_iter().collect()), 1);
+/// assert_eq!(solve(Vec::<i32>::from([])), 1);
 /// 
-/// let set: BTreeSet<i32> = [2,3,4].into_iter().collect(); 
-/// assert_eq!(solve(set.clone()), 12);
-/// assert_eq!(solve(set), 12);
+/// assert_eq!(solve(vec![2,3,4]), 12);
+/// assert_eq!(solve(vec![2,3,4,5,6,7,8,9,10]), 2520);
 /// ```
-pub fn solve<T: PrimInt>(set: Set<T>) -> T where Range<T>: Iterator<Item = T> {
+pub fn solve<T: PrimInt>(divisors: Vec<T>) -> T where Range<T>: Iterator<Item = T> {
   let mut result = T::one();
-  for divisor in set {
+  for divisor in divisors {
     result = lcm(result, divisor);
   }
   result
