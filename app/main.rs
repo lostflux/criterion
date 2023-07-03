@@ -50,5 +50,8 @@ fn main() {
 
   // Problem 3
   colorize(3, problems::problem3::solve(600851475143 as i64));
+
+  // Problem 4
+  colorize(4, problems::problem4::solve(100..1000));
 }
 

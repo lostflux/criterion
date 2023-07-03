@@ -31,7 +31,7 @@ pub fn solve<T: PrimInt>(divisors: Vec<T>, limit: T) -> T where Range<T>: Iterat
       }
     }
   }
-  return sum;
+  sum
 }
 
 #[cfg(test)]

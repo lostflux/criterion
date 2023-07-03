@@ -24,5 +24,5 @@ pub fn solve<T: PrimInt>(mut n: T) -> T {
     }
     i = i + T::one();
   }
-  return n;
+  n
 }
