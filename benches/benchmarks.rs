@@ -26,10 +26,22 @@ fn benchmark2(c: &mut Criterion) {
   );
 }
 
+fn benchmark3(c: &mut Criterion) {
+  c.bench_function(
+    "Problem 3", 
+    |b| b.iter(
+      || problem3::solve(
+        black_box(600851475143 as i64)
+      )
+    )
+  );
+}
+
 
 
 criterion_group!(benches,
-  benchmark1,
-  benchmark2
+    benchmark1
+  , benchmark2
+  , benchmark3
 );
 criterion_main!(benches);
