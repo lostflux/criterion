@@ -53,5 +53,11 @@ fn main() {
 
   // Problem 4
   colorize(4, problems::problem4::solve(100..1000));
+
+  // Problem 5
+  colorize(5, problems::problem5::solve((1..20).collect()));
+
+  // Problem 6
+  colorize(6, problems::problem6::solve(1..=100));
 }
 
