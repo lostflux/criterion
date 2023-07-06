@@ -8,6 +8,7 @@ mod benchmark3;
 mod benchmark4;
 mod benchmark5;
 mod benchmark6;
+mod benchmark7;
 
 criterion_main!(benches);
 
@@ -18,4 +19,5 @@ criterion_group!(benches,
   , benchmark4::run
   , benchmark5::run
   , benchmark6::run
+  , benchmark7::run
 );
