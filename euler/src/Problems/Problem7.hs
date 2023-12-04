@@ -7,7 +7,7 @@ module Problems.Problem7 (
 import Problems.Problem3 (primes)
 
 solve :: Int -> Integer
-solve = (primes !!) . (subtract 1)
+solve = (primes !!) . subtract 1
 
 -- >>> map solve [1..10]
 -- [2,3,5,7,11,13,17,19,23,29]

@@ -15,9 +15,9 @@ module Problems.Problem1 (
 
 import Data.List (nub)
 import Control.Monad (when)
-import Data.Traversable (for)
 import Data.STRef.Strict (readSTRef, modifySTRef, newSTRef)
 import Control.Monad.ST.Strict (runST)
+import Data.Foldable (for_)
 
 
 -- | Using a tail-recursive function.
@@ -35,8 +35,7 @@ solution = solve 1000
 
 -- | Check if any of the divisors divide the number n.
 anyDivisor :: (Foldable c, Integral a) => a -> c a -> Bool
-anyDivisor n divisors =
-  any (\x -> n `mod` x == 0) divisors
+anyDivisor n = any (\x -> n `mod` x == 0)
   -- ^ NOTE: this short-circuits,
   --   i.e. it stops as soon as it finds a divisor.
 
@@ -71,7 +70,7 @@ solve1 bound divisors =
 -- Examples:
 -- >>> solve2 1000 [3,5]
 -- 233168
--- WAS solve2 :: Integer -> [Integer] -> Integer
+
 solve2 :: (Foldable c, Integral a) => a -> c a -> a
 solve2 bound divisors = iter 0 0
   where
@@ -94,11 +93,11 @@ solve3 bound divisors =
   runST $ newSTRef 0 >>= compute
   where
     compute total = do
-      for [1..bound-1] $ \curr -> do
-        when (curr `anyDivisor` divisors) $ do
-          modifySTRef total (+ curr)
+      for_ [1..bound-1] $ \curr -> do
+        let status = curr `anyDivisor` divisors
+        when status $ modifySTRef total (+ curr)
       readSTRef total
-  
+
 
 -- >>> solve3 1000 [3,5]
--- 233168
+-- 214216

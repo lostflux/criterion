@@ -1,5 +1,3 @@
-{-# LANGUAGE ImportQualifiedPost #-}
-
 -- | The sum of the squares of the first ten natural numbers is
 --  1^2 + 2^2 + ... + 10^2 = 385.
 --
@@ -28,7 +26,7 @@ sumOfSquares n = sum $ map (^2) [1..n]
 -- >>> squareOfSum 10
 -- 3025
 squareOfSum :: Integer -> Integer
-squareOfSum n = (sum [1..n]) ^ 2
+squareOfSum n = sum [1..n] ^ 2
 
 -- | Compute the difference between the sum of the squares of the first n natural numbers
 -- and the square of the sum.

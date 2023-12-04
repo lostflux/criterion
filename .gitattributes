@@ -1,0 +1,11 @@
+# YAML
+
+*.yml linguist-detectable=true
+*.yaml linguist-detectable=true
+
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
+
+# TOML
+*.toml linguist-detectable=true
+*.toml linguist-language=TOML

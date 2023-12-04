@@ -36,14 +36,14 @@ findMaxWindow :: Int -> String -> [Int]
 findMaxWindow n chars
   | n > length number = []
   | otherwise         = iter 0 startingMaxList startingMaxList startingRemainingList
-  
+
   where
     (startingMaxList, startingRemainingList)  = splitAt n $ map digitToInt chars
     startingMaxVal                            = product startingMaxList
 
     iter :: Int -> [Int] -> [Int] -> [Int] -> [Int]
     iter maxVal maxList currList remainingList
-      | length remainingList == 0   = 
+      | null remainingList          =
         if currVal > maxVal then currList else maxList
       | currVal > maxVal            = iter currVal currList nextCurrList nextRemainingList
       | otherwise                   = iter maxVal maxList nextCurrList nextRemainingList

@@ -12,9 +12,9 @@
 //! Find the difference between the sum of the squares of the first one hundred
 //! natural numbers and the square of the sum.
 
-use std::{iter::Sum, ops::{RangeInclusive}};
+use std::{iter::Sum, ops::RangeInclusive};
 
-use num::{PrimInt};
+use num::PrimInt;
 
 /// Given a range, return the difference between
 /// (1) the square of their sum, and

@@ -30,7 +30,7 @@ phi2 = (1 - sqrt 5) / 2
 -- where $φ = \frac{1 + \sqrt{5}}{2}$
 -- and $F_n = round(phi ^ (n-1))$
 fibs2 :: [Integer]
-fibs2 = drop 1 $ map round $ map (\n -> (phi1 ^ (n) - phi2 ^ (n)) / sqrt 5) [1..]
+fibs2 = drop 1 $ map (round . (\n -> (phi1 ^ n - phi2 ^ n) / sqrt 5)) [1..]
 
 -- >>> take 10 fibs2
 -- [1,2,3,5,8,13,21,34,55,89]
